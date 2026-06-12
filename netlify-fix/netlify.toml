@@ -1,0 +1,19 @@
+[build]
+  # The build command Netlify will run
+  command = "npm run build"
+  # Where Nitro (with the netlify preset) puts the public/static assets
+  publish = ".output/public"
+  # Where Nitro puts the Netlify Functions (SSR server handler)
+  functions = ".output/server"
+
+[build.environment]
+  # Tell Nitro explicitly to target Netlify
+  NITRO_PRESET = "netlify"
+  NODE_VERSION = "20"
+
+# Redirect all requests to the Nitro SSR function so TanStack Router
+# can handle client-side navigation without getting "Page Not Found".
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/server"
+  status = 200

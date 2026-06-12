@@ -1,0 +1,3 @@
+# Catch-all: serve every route through the SSR function.
+# This is a belt-and-suspenders fallback alongside netlify.toml.
+/*    /.netlify/functions/server    200
